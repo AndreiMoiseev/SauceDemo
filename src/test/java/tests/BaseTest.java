@@ -9,6 +9,7 @@ import pages.CheckOutPage;
 import pages.LoginPage;
 import pages.LoginPageFactory;
 import pages.ProductsPage;
+import utils.CapabilitiesGenerator;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,7 +27,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void StartTest() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
